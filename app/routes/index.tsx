@@ -29,10 +29,10 @@ export default function Home() {
 	const transition = useTransition()
 	const isSubmitting = transition.state === 'submitting'
 	return (
-		<section className="min-h-screen h-full grid place-items-center ">
+		<section className="flex flex-col justify-center h-full min-h-screen ">
 			{!answerId ? (
 				<Form
-					className="flex flex-col justify-center space-y-10 container w-full mx-auto max-w-lg xl:p-0 p-2 bg-light-800"
+					className="container flex flex-col justify-center w-full max-w-lg p-2 mx-auto space-y-10 xl:p-0 bg-light-800"
 					method="post"
 					ref={(e) => isSubmitting && e?.reset()}
 				>
@@ -41,13 +41,13 @@ export default function Home() {
 					))}
 				</Form>
 			) : (
-				<>
-					<h2>Gracias por completar la encuesta!</h2>
+				<article className='flex flex-col justify-center space-y-3 text-center'>
+					<h1>Muchas gracias por completar la encuesta!</h1>
 					<p>
 						Podrá ver los resultados de la mísma haciendo click{' '}
-						<Link to={`/${answerId}`}>Aquí</Link>
+						<Link to={`/${answerId}`} className="underline">aquí</Link>
 					</p>
-				</>
+				</article>
 			)}
 		</section>
 	)

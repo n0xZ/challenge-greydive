@@ -10,15 +10,13 @@ export const FormField = ({
 	disabled,
 }: FormFieldProps) => {
 	return (
-		<aside className="w-full max-w-lg space-y-3 flex flex-col justify-center">
+		<aside className="flex flex-col justify-center w-full max-w-lg space-y-3">
 			{type !== 'submit' ? <label className="font-semibold">{label}</label> : null}
 			{type === 'select' ? (
 				<select
 					name={name}
 					{...rest}
-					className={`w-full max-w-lg px-3 py-3 ${
-						!disabled ? 'bg-sky-50' : 'bg-sky-200'
-					} rounded-lg outline-none  `}
+					className="w-full max-w-lg px-3 py-3 bg-sky-50 "
 					disabled={disabled}
 				>
 					{options?.map((option) => (
