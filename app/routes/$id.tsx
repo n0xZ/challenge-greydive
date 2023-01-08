@@ -80,7 +80,7 @@ export default function FormAnswer() {
 				className="container flex flex-col items-center justify-center w-full max-w-lg p-2 mx-auto space-y-10 xl:p-0 "
 			>
 				<h1 className="text-2xl font-semibold text-center">
-					Resultados de la encuenta
+					Resultados de la encuesta
 				</h1>
 				<img
 					src={SuccessfulFormResponseAsset}
@@ -89,7 +89,7 @@ export default function FormAnswer() {
 					className="rounded-lg aspect-video bg-light-50"
 					alt="Imagen 404, que representa que no se ha encontrado el resultado del formulario."
 				/>
-				<p>Muchas gracias por participar de la encuentra!</p>
+				<p>Muchas gracias por participar de la encuesta!</p>
 				<FormField
 					item={{
 						label: 'Nombre completo',
