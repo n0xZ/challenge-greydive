@@ -11,7 +11,7 @@ import { FormField } from '~/components/form-field'
 import items from '~/db.json'
 import { firestore } from '~/services/firebase.server'
 import type { APICall } from '~/types'
-
+import SuccessfulFormResponseAsset from '../../public/successful.svg'
 export const action = async ({ request }: ActionArgs) => {
 	const formData = Object.fromEntries(await request.formData())
 	const dbInstance = collection(firestore, 'formAnswer')
@@ -22,6 +22,7 @@ export const action = async ({ request }: ActionArgs) => {
 export const loader = async () => {
 	return items as APICall
 }
+
 
 export default function Home() {
 	const fields = useLoaderData<typeof loader>()
@@ -41,11 +42,22 @@ export default function Home() {
 					))}
 				</Form>
 			) : (
-				<article className='flex flex-col justify-center space-y-3 text-center'>
-					<h1>Muchas gracias por completar la encuesta!</h1>
+				<article className="flex flex-col items-center justify-center space-y-3 text-center">
+					<img
+						src={SuccessfulFormResponseAsset}
+						height={600}
+						width={600}
+						className="aspect-video"
+						alt="Imagen que representa a una persona con un "
+					/>
+					<h1 className="mb-2 text-3xl">
+						Muchas gracias por completar la encuesta!
+					</h1>
 					<p>
 						Podrá ver los resultados de la mísma haciendo click{' '}
-						<Link to={`/${answerId}`} className="underline">aquí</Link>
+						<Link to={`/${answerId}`} className="underline">
+							aquí
+						</Link>
 					</p>
 				</article>
 			)}

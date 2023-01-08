@@ -8,7 +8,13 @@ import {
 	ScrollRestoration,
 } from '@remix-run/react'
 import styles from './styles/app.css'
-export const links: LinksFunction = () => [{ href: styles, rel: 'stylesheet' }]
+export const links: LinksFunction = () => [
+	{ href: styles, rel: 'stylesheet' },
+	{
+		href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap',
+		rel: 'stylesheet',
+	},
+]
 export const meta: MetaFunction = () => ({
 	charset: 'utf-8',
 	title: 'Challenge  Greydive - Gonzalo Molina',
@@ -22,7 +28,7 @@ export default function App() {
 				<Meta />
 				<Links />
 			</head>
-			<body>
+			<body className='font-inter'>
 				<Outlet />
 				<ScrollRestoration />
 				<Scripts />
