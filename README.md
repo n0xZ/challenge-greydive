@@ -1,34 +1,44 @@
-# Welcome to Remix!
+# Challenge Greydive - Gonzalo Molina
 
-- [Remix Docs](https://remix.run/docs)
+Bienvenido al Challenge de Greydive!
 
-## Deployment
+## Las pautas del mísmo son las siguientes:
 
-After having run the `create-remix` command and selected "Vercel" as a deployment target, you only need to [import your Git repository](https://vercel.com/new) into Vercel, and it will be deployed.
 
-If you'd like to avoid using a Git repository, you can also deploy the directory by running [Vercel CLI](https://vercel.com/cli):
+Realizar una app en React.js que lea el siguiente archivo JSON y genere con cada ítem una interfaz de app de encuesta (como Google Forms).
+En cuanto a diseño y estética tiene que diferir de Google Forms. Podés utilizar cualquier librería que creas necesaria.
+
+Las respuestas de la encuesta deben ser enviadas a una base de datos de Firebase.
+Dicha base de datos tiene que ser de su propiedad. No nos compartas acceso a la base de datos.
+
+Por último, traé las respuestas de la base de datos ya mencionada y mostralas en la misma app pero en otra ruta. Al presionar “enviar” en el formulario tiene que aparecer un mensaje y el acceso a esa ruta en donde estarán las respuestas. El diseño y estética queda a libre elección.
+
+
+
+---
+
+### Tecnologías empleadas
+
+[Remix](https://remix.run/)
+
+[React](https://beta.reactjs.org/)
+
+[Typescript](https://www.typescriptlang.org/)
+
+[Firebase](https://firebase.google.com/)
+
+[TailwindCSS](https://tailwindcss.com/)
+
+#### Cómo levantar el proyecto
+
+Para poder correr el proyecto, se requiere de tener PNPM y Node instalado.
+
+Se deberá ingresar la siguiente línea de comandos:
 
 ```sh
-npm i -g vercel
-vercel
+$  git clone https://github.com/n0xZ/challenge-greydive.git
+$  cd challenge-greydive
+$  pnpm install
+$  pnpm dev
 ```
 
-It is generally recommended to use a Git repository, because future commits will then automatically be deployed by Vercel, through its [Git Integration](https://vercel.com/docs/concepts/git).
-
-## Development
-
-To run your Remix app locally, make sure your project's local dependencies are installed:
-
-```sh
-npm install
-```
-
-Afterwards, start the Remix development server like so:
-
-```sh
-npm run dev
-```
-
-Open up [http://localhost:3000](http://localhost:3000) and you should be ready to go!
-
-If you're used to using the `vercel dev` command provided by [Vercel CLI](https://vercel.com/cli) instead, you can also use that, but it's not needed.
