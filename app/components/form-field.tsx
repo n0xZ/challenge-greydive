@@ -8,6 +8,7 @@ type FormFieldProps = {
 export const FormField = ({
 	item: { label, type, name, options, ...rest },
 	disabled,
+	value,
 }: FormFieldProps) => {
 	return (
 		<aside className="flex flex-col justify-center w-full max-w-lg space-y-3">
@@ -15,6 +16,7 @@ export const FormField = ({
 			{type === 'select' ? (
 				<select
 					name={name}
+					value={value}
 					{...rest}
 					className="w-full max-w-lg px-3 py-3 bg-sky-50 "
 					disabled={disabled}
@@ -43,10 +45,9 @@ export const FormField = ({
 					name={name}
 					type={type}
 					disabled={disabled}
+					value={value}
 					{...rest}
-					className={`w-full max-w-lg px-3 py-3  ${
-						!disabled ? 'bg-sky-50' : 'bg-sky-200'
-					} rounded-lg outline-none  `}
+					className="w-full max-w-lg px-3 py-3 rounded-lg outline-none bg-sky-50 "
 				/>
 			) : null}
 		</aside>
