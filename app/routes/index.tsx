@@ -8,10 +8,15 @@ import {
 } from '@remix-run/react'
 import { collection, addDoc } from 'firebase/firestore'
 import { FormField } from '~/components/form-field'
-import items from '~/db.json'
+import { Layout } from './$id'
 import { firestore } from '~/services/firebase.server'
+import items from '~/db.json'
 import type { APICall } from '~/types'
 import SuccessfulFormResponseAsset from '../../public/successful.svg'
+
+// Esta función se encargará de obtener la información enviada del formulario, y se ejecutará en el server para poder crear la respuesta del formulario.
+// Si éste ha sido exitoso, devolverá el ID del documento creado.
+
 export const action = async ({ request }: ActionArgs) => {
 	const formData = Object.fromEntries(await request.formData())
 	const dbInstance = collection(firestore, 'formAnswer')
@@ -22,7 +27,16 @@ export const action = async ({ request }: ActionArgs) => {
 export const loader = async () => {
 	return items as APICall
 }
-
+export const ErrorBoundary = () => {
+	return (
+		<Layout>
+			<h1 className="text-2xl font-semibold text-center">
+				Ha ocurrido un error 😢
+			</h1>
+			<p className="text-center">Por favor, vuelva a intentarlo más tarde.</p>
+		</Layout>
+	)
+}
 
 export default function Home() {
 	const fields = useLoaderData<typeof loader>()
@@ -30,7 +44,7 @@ export default function Home() {
 	const transition = useTransition()
 	const isSubmitting = transition.state === 'submitting'
 	return (
-		<section className="flex flex-col justify-center h-full min-h-screen ">
+		<Layout>
 			{!answerId ? (
 				<Form
 					className="container flex flex-col justify-center w-full max-w-lg p-2 mx-auto space-y-10 xl:p-0 bg-light-800"
@@ -61,6 +75,6 @@ export default function Home() {
 					</p>
 				</article>
 			)}
-		</section>
+		</Layout>
 	)
 }
